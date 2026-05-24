@@ -40,3 +40,19 @@ const produtos = [
     emoji: '✨',
   },
 ];
+
+const carrinho = [
+  { id: 2, nome: 'Shineray SE1',       emoji: '⚡',  qtd: 1, precoUnit: 12490 },
+  { id: 4, nome: 'Shineray SHE-S',     emoji: '🔋',  qtd: 2, precoUnit: 16490 },
+  { id: 1, nome: 'Shineray PT3S',      emoji: '🛵',  qtd: 1, precoUnit: 12990 },
+  { id: 5, nome: 'Shineray PT4-PRO S', emoji: '✨',  qtd: 3, precoUnit: 15990 },
+];
+
+// ----- UTILITÁRIOS -----
+function formatarMoeda(valor) {
+  return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
+function calcularTotal(itens) {
+  return itens.reduce((acc, item) => acc + item.precoUnit * item.qtd, 0);
+}
