@@ -1,0 +1,42 @@
+const produtos = [
+  {
+    id: 1,
+    nome: 'Shineray PT3S',
+    tag: 'SCOOTER ELÉTRICA',
+    descricao: 'Scooter elétrica com motor 3000W Brushless, bateria de lítio removível 60V/20Ah, autonomia de até 35 km por carga e painel 100% digital. Aro 10, freios a disco e capacidade para 2ª bateria.',
+    preco: 12990,
+    emoji: '🛵',
+  },
+  {
+    id: 2,
+    nome: 'Shineray SE1',
+    tag: 'MOTOCICLETA ELÉTRICA',
+    descricao: 'Motocicleta elétrica com motor Bosch 2000W (IP67), bateria de lítio removível 60V/23,4Ah, autonomia de até 60 km por carga e painel digital completo. Rodas aro 12, freios a disco e suspensão telescópica.',
+    preco: 12490,
+    emoji: '⚡',
+  },
+  {
+    id: 3,
+    nome: 'Shineray SE2',
+    tag: 'MOTOCICLETA ELÉTRICA',
+    descricao: 'Motocicleta elétrica retrô com motor Bosch 2300W (IP67), bateria lítio removível 60V/23,4Ah, autonomia de até 60 km e visual clássico. Rodas aro 12, freios a disco e capacidade para 2ª bateria.',
+    preco: 12490,
+    emoji: '🏍️',
+  },
+  {
+    id: 4,
+    nome: 'Shineray SHE-S',
+    tag: 'NAKED ELÉTRICA',
+    descricao: 'Motocicleta elétrica esportiva com motor 3000W, bateria LiFePO4 72V/35Ah, autonomia de até 80 km e painel TFT full-color. Rodas aro 17, suspensão invertida dianteira e monoshock traseiro.',
+    preco: 16490,
+    emoji: '🔋',
+  },
+  {
+    id: 5,
+    nome: 'Shineray PT4-PRO S',
+    tag: 'SCOOTER PREMIUM',
+    descricao: 'Scooter elétrica premium com design moderno, motor de alta performance, painel digital colorido, iluminação Full LED e dupla capacidade de bateria. O modelo mais avançado da linha de scooters elétricas Shineray.',
+    preco: 15990,
+    emoji: '✨',
+  },
+];
