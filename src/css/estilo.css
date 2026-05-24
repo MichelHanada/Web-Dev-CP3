@@ -362,3 +362,128 @@ nav {
   background: var(--verde-escuro);
   transform: scale(1.04);
 }
+
+/* ---- SOBRE PAGE ---- */
+.sobre-section {
+  max-width: 860px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.sobre-card {
+  background: var(--preto-card);
+  border: 1px solid rgba(0,255,136,0.15);
+  border-radius: 16px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.sobre-card::after {
+  content: 'V⚡';
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12rem;
+  position: absolute;
+  right: -1rem;
+  bottom: -2rem;
+  color: rgba(0,255,136,0.04);
+  pointer-events: none;
+}
+
+.sobre-card h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  color: var(--verde);
+  margin-bottom: 1rem;
+}
+
+.sobre-card p {
+  color: var(--branco-opaco);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.sobre-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.stat {
+  background: rgba(0,255,136,0.05);
+  border: 1px solid rgba(0,255,136,0.15);
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  color: var(--verde);
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--branco-opaco);
+  letter-spacing: 1px;
+}
+
+/* ---- LOJA / CARRINHO ---- */
+.loja-section {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.carrinho-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.carrinho-item {
+  background: var(--preto-card);
+  border: 1px solid rgba(0,255,136,0.1);
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.2s;
+}
+
+.carrinho-item:hover { border-color: rgba(0,255,136,0.3); }
+
+.item-info { display: flex; align-items: center; gap: 1rem; }
+
+.item-icone {
+  font-size: 1.8rem;
+  width: 48px;
+  text-align: center;
+}
+
+.item-nome {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  color: var(--branco);
+}
+
+.item-qtd {
+  font-size: 0.85rem;
+  color: var(--branco-opaco);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.item-preco {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  color: var(--verde);
+  letter-spacing: 1px;
+}
