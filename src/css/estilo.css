@@ -172,79 +172,6 @@ nav {
   margin-bottom: 2.5rem;
 }
 
-/* ---- HERO ---- */
-.hero {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 5rem 2rem 4rem;
-  overflow: hidden;
-  min-height: 60vh;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,255,136,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 30% at 80% 80%, rgba(0,200,255,0.07) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.hero-eyebrow {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.8rem;
-  letter-spacing: 5px;
-  color: var(--verde);
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-}
-
-.hero h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem, 8vw, 7rem);
-  line-height: 0.95;
-  letter-spacing: 4px;
-  color: var(--branco);
-  text-shadow: 0 0 60px rgba(0,255,136,0.15);
-}
-
-.hero h1 em {
-  color: var(--verde);
-  font-style: normal;
-}
-
-.hero p {
-  margin-top: 1.5rem;
-  color: var(--branco-opaco);
-  font-size: 1.1rem;
-  max-width: 500px;
-  line-height: 1.6;
-}
-
-/* ---- SECTION TITLES ---- */
-.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.4rem;
-  letter-spacing: 4px;
-  color: var(--branco);
-  margin-bottom: 0.4rem;
-}
-
-.section-title span { color: var(--verde); }
-
-.section-sub {
-  font-size: 0.9rem;
-  color: var(--branco-opaco);
-  letter-spacing: 2px;
-  font-family: 'Share Tech Mono', monospace;
-  margin-bottom: 2.5rem;
-}
-
 /* ---- PRODUTOS GRID (index) ---- */
 .produtos-section {
   padding: 4rem 3rem;
@@ -488,6 +415,7 @@ nav {
   letter-spacing: 1px;
 }
 
+/* ---- RESUMO ---- */
 .resumo-box {
   background: var(--preto-card);
   border: 1px solid rgba(0,255,136,0.2);
@@ -631,3 +559,32 @@ footer span { color: var(--verde); }
 .card-produto:nth-child(3) { animation-delay: 0.14s; }
 .card-produto:nth-child(4) { animation-delay: 0.21s; }
 .card-produto:nth-child(5) { animation-delay: 0.28s; }
+
+/* ---- IMAGEM REAL NOS CARDS ---- */
+.card-img-wrapper {
+  width: 100%;
+  height: 200px;
+  background: var(--cinza);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-img-real {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.card-produto:hover .card-img-real {
+  transform: scale(1.06);
+}
+
+/* SVG local cobre o wrapper inteiro */
+.card-img-real[src$=".svg"] {
+  object-fit: cover;
+}

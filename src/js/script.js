@@ -1,19 +1,31 @@
+// =============================================================
+// VOLTZ MOTO — script.js
+// Dados reais das motos elétricas Shineray (shineray.com.br)
+// Preços sugeridos pelo fabricante (sem frete)
+// =============================================================
+
+// Detecta se está sendo chamado de pages/ ou da raiz
+const BASE_IMG = (function() {
+  const path = window.location.pathname;
+  return path.includes('/pages/') ? '../src/assets/img/' : 'src/assets/img/';
+})();
+
 const produtos = [
   {
     id: 1,
     nome: 'Shineray PT3S',
     tag: 'SCOOTER ELÉTRICA',
-    descricao: 'Scooter elétrica com motor 3000W Brushless, bateria de lítio removível 60V/20Ah, autonomia de até 35 km por carga e painel 100% digital. Aro 10, freios a disco e capacidade para 2ª bateria.',
+    descricao: 'Scooter elétrica com motor 3000W Brushless, bateria lítio removível 60V/20Ah, autonomia de até 35 km por carga e painel 100% digital. Aro 10, freios a disco e suporte para 2ª bateria.',
     preco: 12990,
-    emoji: '🛵',
+    img: 'pt3s.png',
   },
   {
     id: 2,
     nome: 'Shineray SE1',
     tag: 'MOTOCICLETA ELÉTRICA',
-    descricao: 'Motocicleta elétrica com motor Bosch 2000W (IP67), bateria de lítio removível 60V/23,4Ah, autonomia de até 60 km por carga e painel digital completo. Rodas aro 12, freios a disco e suspensão telescópica.',
+    descricao: 'Motocicleta elétrica com motor Bosch 2000W (IP67), bateria lítio removível 60V/23,4Ah, autonomia de até 60 km e painel digital completo. Rodas aro 12, freios a disco e suspensão telescópica.',
     preco: 12490,
-    emoji: '⚡',
+    img: 'se1.png',
   },
   {
     id: 3,
@@ -21,7 +33,7 @@ const produtos = [
     tag: 'MOTOCICLETA ELÉTRICA',
     descricao: 'Motocicleta elétrica retrô com motor Bosch 2300W (IP67), bateria lítio removível 60V/23,4Ah, autonomia de até 60 km e visual clássico. Rodas aro 12, freios a disco e capacidade para 2ª bateria.',
     preco: 12490,
-    emoji: '🏍️',
+    img: 'se2.png',
   },
   {
     id: 4,
@@ -29,15 +41,15 @@ const produtos = [
     tag: 'NAKED ELÉTRICA',
     descricao: 'Motocicleta elétrica esportiva com motor 3000W, bateria LiFePO4 72V/35Ah, autonomia de até 80 km e painel TFT full-color. Rodas aro 17, suspensão invertida dianteira e monoshock traseiro.',
     preco: 16490,
-    emoji: '🔋',
+    img: 'shes.png',
   },
   {
     id: 5,
     nome: 'Shineray PT4-PRO S',
     tag: 'SCOOTER PREMIUM',
-    descricao: 'Scooter elétrica premium com design moderno, motor de alta performance, painel digital colorido, iluminação Full LED e dupla capacidade de bateria. O modelo mais avançado da linha de scooters elétricas Shineray.',
+    descricao: 'Scooter elétrica premium com design moderno, motor de alta performance, painel digital colorido, iluminação Full LED e suporte para dupla bateria. O modelo top da linha de scooters elétricas Shineray.',
     preco: 15990,
-    emoji: '✨',
+    img: 'pt4pros.png',
   },
 ];
 
@@ -47,6 +59,7 @@ const carrinho = [
   { id: 1, nome: 'Shineray PT3S',      emoji: '🛵',  qtd: 1, precoUnit: 12990 },
   { id: 5, nome: 'Shineray PT4-PRO S', emoji: '✨',  qtd: 3, precoUnit: 15990 },
 ];
+
 function formatarMoeda(valor) {
   return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
@@ -58,23 +71,22 @@ function calcularTotal(itens) {
 function renderizarProdutos() {
   const grid = document.getElementById('grid-produtos');
   if (!grid) return;
-
   grid.innerHTML = '';
 
   produtos.forEach((p) => {
     const card = document.createElement('article');
     card.className = 'card-produto';
     card.innerHTML = `
-      <div class="card-img">${p.emoji}</div>
+      <div class="card-img-wrapper">
+        <img class="card-img-real" src="${BASE_IMG}${p.img}" alt="${p.nome}" />
+      </div>
       <div class="card-body">
         <p class="card-tag">${p.tag}</p>
         <h3 class="card-nome">${p.nome}</h3>
         <p class="card-desc">${p.descricao}</p>
         <div class="card-footer">
           <span class="card-preco">${formatarMoeda(p.preco)}</span>
-          <button class="btn-comprar" onclick="adicionarAoCarrinho(${p.id})">
-            + CARRINHO
-          </button>
+          <button class="btn-comprar" onclick="adicionarAoCarrinho(${p.id})">+ CARRINHO</button>
         </div>
       </div>
     `;
@@ -89,7 +101,6 @@ function adicionarAoCarrinho(id) {
 function renderizarCarrinho() {
   const lista = document.getElementById('carrinho-lista');
   if (!lista) return;
-
   lista.innerHTML = '';
 
   carrinho.forEach((item) => {
@@ -116,27 +127,22 @@ let descontoAplicado = false;
 
 function atualizarResumo() {
   const totalBruto = calcularTotal(carrinho);
-  const totalComDesconto = descontoAplicado
-    ? totalBruto * 0.9
-    : totalBruto;
+  const totalFinal = descontoAplicado ? totalBruto * 0.9 : totalBruto;
 
-  const elSubtotal   = document.getElementById('subtotal');
-  const elDesconto   = document.getElementById('linha-desconto');
-  const elValorDesc  = document.getElementById('valor-desconto');
-  const elTotal      = document.getElementById('total-compra');
-  const btnDesconto  = document.getElementById('btn-desconto');
+  const elSubtotal  = document.getElementById('subtotal');
+  const elDesconto  = document.getElementById('linha-desconto');
+  const elValorDesc = document.getElementById('valor-desconto');
+  const elTotal     = document.getElementById('total-compra');
+  const btnDesconto = document.getElementById('btn-desconto');
 
-  if (elSubtotal)  elSubtotal.textContent  = formatarMoeda(totalBruto);
-  if (elTotal)     elTotal.textContent     = formatarMoeda(totalComDesconto);
+  if (elSubtotal) elSubtotal.textContent = formatarMoeda(totalBruto);
+  if (elTotal)    elTotal.textContent    = formatarMoeda(totalFinal);
 
   if (descontoAplicado) {
     if (elDesconto)  elDesconto.style.display = 'flex';
     if (elValorDesc) elValorDesc.textContent  = `- ${formatarMoeda(totalBruto * 0.1)}`;
     if (elTotal)     elTotal.classList.add('desconto');
-    if (btnDesconto) {
-      btnDesconto.textContent = '✔ DESCONTO DE 10% APLICADO';
-      btnDesconto.disabled = true;
-    }
+    if (btnDesconto) { btnDesconto.textContent = '✔ DESCONTO DE 10% APLICADO'; btnDesconto.disabled = true; }
   }
 }
 
@@ -163,13 +169,10 @@ function mostrarToast(msg) {
 document.addEventListener('DOMContentLoaded', () => {
   renderizarProdutos();
   renderizarCarrinho();
-
-  const links = document.querySelectorAll('.nav-links a');
-  links.forEach((link) => {
+  document.querySelectorAll('.nav-links a').forEach((link) => {
     if (link.href === window.location.href) link.classList.add('ativo');
   });
 });
 
 window.aplicarDesconto = aplicarDesconto;
 window.adicionarAoCarrinho = adicionarAoCarrinho;
-window.__voltzmoto = { produtos, carrinho };
