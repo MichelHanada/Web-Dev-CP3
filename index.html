@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voltz Moto — Motos Elétricas Shineray</title>
+  <link rel="stylesheet" href="src/css/estilo.css" />
 </head>
 <body>
-    
+
+  <nav>
+    <a href="index.html" class="nav-logo">VOLTZ<span>MOTO</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="pages/loja.html">Loja / Carrinho</a></li>
+      <li><a href="pages/sobre.html">Sobre</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <p class="hero-eyebrow">// REVENDEDORA OFICIAL SHINERAY</p>
+    <h1>MOTOS<br><em>ELÉTRICAS</em><br>SHINERAY</h1>
+    <p>Especialistas em mobilidade elétrica Shineray no Brasil. Modelos SE1, SE2, SHE-S, PT3S e PT4-PRO S com preços de fábrica.</p>
+  </header>
+
+  <main class="produtos-section">
+    <p class="section-sub">// CATÁLOGO SHINERAY ELÉTRICA</p>
+    <h2 class="section-title">NOSSOS <span>MODELOS</span></h2>
+
+    <div class="grid-produtos" id="grid-produtos">
+      <!-- Cards gerados dinamicamente por renderizarProdutos() em script.js -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <span>Voltz Moto</span> · Revendedora Shineray · Todos os direitos reservados</p>
+  </footer>
+
+  <script src="src/js/script.js"></script>
 </body>
 </html>

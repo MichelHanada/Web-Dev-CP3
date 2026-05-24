@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voltz Moto — Carrinho</title>
+  <link rel="stylesheet" href="../src/css/estilo.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">VOLTZ<span>MOTO</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Início</a></li>
+      <li><a href="loja.html">Loja / Carrinho</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+    </ul>
+  </nav>
+
+  <main class="loja-section">
+    <p class="section-sub">// REVISÃO DO PEDIDO</p>
+    <h2 class="section-title">SEU <span>CARRINHO</span></h2>
+
+    <!-- Lista de itens gerada via DOM -->
+    <div class="carrinho-lista" id="carrinho-lista"></div>
+
+    <!-- Resumo financeiro -->
+    <div class="resumo-box">
+      <div class="resumo-linha">
+        <span class="label">Subtotal</span>
+        <span class="valor" id="subtotal">R$ 0,00</span>
+      </div>
+
+      <div class="resumo-linha" id="linha-desconto" style="display:none;">
+        <span class="label">Desconto <span class="badge-desconto">-10%</span></span>
+        <span class="valor" id="valor-desconto" style="color:var(--laranja);">- R$ 0,00</span>
+      </div>
+
+      <div class="resumo-linha total">
+        <span class="label">TOTAL DA COMPRA</span>
+        <span class="valor" id="total-compra">R$ 0,00</span>
+      </div>
+
+      <!-- Bônus: Botão de desconto -->
+      <button class="btn-desconto" id="btn-desconto" onclick="aplicarDesconto()">
+        🏷️ APLICAR DESCONTO DE 10%
+      </button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <span>Voltz Moto</span> · Revendedora Shineray · Todos os direitos reservados</p>
+  </footer>
+
+  <script src="../src/js/script.js"></script>
+</body>
+</html>
