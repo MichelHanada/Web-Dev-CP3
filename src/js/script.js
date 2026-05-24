@@ -1,10 +1,3 @@
-// =============================================================
-// VOLTZ MOTO — script.js
-// Dados reais das motos elétricas Shineray (shineray.com.br)
-// Preços sugeridos pelo fabricante (sem frete)
-// =============================================================
-
-// Detecta se está sendo chamado de pages/ ou da raiz
 const BASE_IMG = (function() {
   const path = window.location.pathname;
   return path.includes('/pages/') ? '../src/assets/img/' : 'src/assets/img/';

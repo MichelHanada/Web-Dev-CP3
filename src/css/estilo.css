@@ -31,12 +31,10 @@ body {
   overflow-x: hidden;
 }
 
-/* ---- SCROLLBAR ---- */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--preto-medio); }
 ::-webkit-scrollbar-thumb { background: var(--verde); border-radius: 3px; }
 
-/* ---- NAV ---- */
 nav {
   display: flex;
   align-items: center;
@@ -99,7 +97,6 @@ nav {
 .nav-links a:hover::after,
 .nav-links a.ativo::after { width: 100%; }
 
-/* ---- HERO ---- */
 .hero {
   position: relative;
   display: flex;
@@ -153,7 +150,6 @@ nav {
   line-height: 1.6;
 }
 
-/* ---- SECTION TITLES ---- */
 .section-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2.4rem;
@@ -172,7 +168,6 @@ nav {
   margin-bottom: 2.5rem;
 }
 
-/* ---- PRODUTOS GRID (index) ---- */
 .produtos-section {
   padding: 4rem 3rem;
   max-width: 1400px;
@@ -290,7 +285,6 @@ nav {
   transform: scale(1.04);
 }
 
-/* ---- SOBRE PAGE ---- */
 .sobre-section {
   max-width: 860px;
   margin: 4rem auto;
@@ -360,7 +354,6 @@ nav {
   letter-spacing: 1px;
 }
 
-/* ---- LOJA / CARRINHO ---- */
 .loja-section {
   max-width: 900px;
   margin: 4rem auto;
@@ -415,7 +408,6 @@ nav {
   letter-spacing: 1px;
 }
 
-/* ---- RESUMO ---- */
 .resumo-box {
   background: var(--preto-card);
   border: 1px solid rgba(0,255,136,0.2);
@@ -492,7 +484,6 @@ nav {
   font-weight: 700;
 }
 
-/* ---- FOOTER ---- */
 footer {
   text-align: center;
   padding: 2rem;
@@ -505,7 +496,6 @@ footer {
 
 footer span { color: var(--verde); }
 
-/* ---- TOAST ---- */
 .toast {
   position: fixed;
   bottom: 2rem;
@@ -529,7 +519,6 @@ footer span { color: var(--verde); }
   transform: translateY(0);
 }
 
-/* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
   nav { padding: 0 1.5rem; }
   .nav-links { gap: 1.5rem; }
@@ -543,13 +532,10 @@ footer span { color: var(--verde); }
   .sobre-stats { grid-template-columns: 1fr; }
 }
 
-/* --- NAV MOBILE EXTRA --- */
 @media (max-width: 360px) { .nav-logo { font-size: 1.4rem; } }
 
-/* Grid produtos — garantia de 5 colunas em telas grandes */
 @media (min-width: 1200px) { .grid-produtos { grid-template-columns: repeat(5, 1fr); } }
 
-/* Animação de entrada suave para os cards */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -560,7 +546,6 @@ footer span { color: var(--verde); }
 .card-produto:nth-child(4) { animation-delay: 0.21s; }
 .card-produto:nth-child(5) { animation-delay: 0.28s; }
 
-/* ---- IMAGEM REAL NOS CARDS ---- */
 .card-img-wrapper {
   width: 100%;
   height: 200px;
@@ -584,7 +569,6 @@ footer span { color: var(--verde); }
   transform: scale(1.06);
 }
 
-/* SVG local cobre o wrapper inteiro */
 .card-img-real[src$=".svg"] {
   object-fit: cover;
 }
