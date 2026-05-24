@@ -47,7 +47,6 @@ const carrinho = [
   { id: 1, nome: 'Shineray PT3S',      emoji: '🛵',  qtd: 1, precoUnit: 12990 },
   { id: 5, nome: 'Shineray PT4-PRO S', emoji: '✨',  qtd: 3, precoUnit: 15990 },
 ];
-
 function formatarMoeda(valor) {
   return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }

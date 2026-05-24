@@ -487,3 +487,147 @@ nav {
   color: var(--verde);
   letter-spacing: 1px;
 }
+
+.resumo-box {
+  background: var(--preto-card);
+  border: 1px solid rgba(0,255,136,0.2);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.resumo-linha {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 1rem;
+  color: var(--branco-opaco);
+}
+
+.resumo-linha.total {
+  border-bottom: none;
+  margin-top: 0.8rem;
+  padding-top: 1rem;
+}
+
+.resumo-linha.total .label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: var(--branco);
+}
+
+.resumo-linha.total .valor {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: var(--verde);
+  letter-spacing: 2px;
+  transition: color 0.3s;
+}
+
+.resumo-linha.total .valor.desconto { color: var(--laranja); }
+
+.btn-desconto {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: transparent;
+  border: 1px solid var(--laranja);
+  color: var(--laranja);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-desconto:hover {
+  background: var(--laranja);
+  color: var(--preto);
+}
+
+.btn-desconto:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.badge-desconto {
+  display: inline-block;
+  background: var(--laranja);
+  color: var(--preto);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* ---- FOOTER ---- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid rgba(0,255,136,0.1);
+  color: var(--branco-opaco);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+footer span { color: var(--verde); }
+
+/* ---- TOAST ---- */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--preto-card);
+  border: 1px solid var(--verde);
+  color: var(--verde);
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .produtos-section { padding: 3rem 1.5rem; }
+  .sobre-stats { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .nav-links { gap: 1rem; }
+  .nav-links a { font-size: 0.8rem; }
+  .sobre-stats { grid-template-columns: 1fr; }
+}
+
+/* --- NAV MOBILE EXTRA --- */
+@media (max-width: 360px) { .nav-logo { font-size: 1.4rem; } }
+
+/* Grid produtos — garantia de 5 colunas em telas grandes */
+@media (min-width: 1200px) { .grid-produtos { grid-template-columns: repeat(5, 1fr); } }
+
+/* Animação de entrada suave para os cards */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card-produto { animation: fadeUp 0.4s ease both; }
+.card-produto:nth-child(2) { animation-delay: 0.07s; }
+.card-produto:nth-child(3) { animation-delay: 0.14s; }
+.card-produto:nth-child(4) { animation-delay: 0.21s; }
+.card-produto:nth-child(5) { animation-delay: 0.28s; }
